@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2025-09-02-0007-apustygina
+      author: apustygina
+      createTable:
+        tableName: group_climber
+        columns:
+          - column:
+              name: group_id
+              type: bigint
+              constraints:
+                nullable: false
+          - column:
+              name: climber_id
+              type: bigint
+              constraints:
+                nullable: false
+          - column:
+              name: join_date
+              type: date
+          - column:
+              name: leave_date
+              type: date
+
+  - changeSet:
+      id: 2025-09-02-0007-pk
+      author: apustygina
+      addPrimaryKey:
+        tableName: group_climber
+        columnNames: group_id, climber_id
+        constraintName: pk_group_climber
+
+  - changeSet:
+      id: 2025-09-02-0007-fk-group
+      author: apustygina
+      addForeignKeyConstraint:
+        baseTableName: group_climber
+        baseColumnNames: group_id
+        referencedTableName: groups
+        referencedColumnNames: id
+        constraintName: fk_group_climber_group
+
+  - changeSet:
+      id: 2025-09-02-0007-fk-climber
+      author: apustygina
+      addForeignKeyConstraint:
+        baseTableName: group_climber
+        baseColumnNames: climber_id
+        referencedTableName: climber
+        referencedColumnNames: id
+        constraintName: fk_group_climber_climber

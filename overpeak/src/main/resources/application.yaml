@@ -1,0 +1,19 @@
+server:
+  port: 8087
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5434/overpeak
+    username: postgres
+    password: overpeakPass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    database: postgresql
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    hibernate:
+      ddl-auto: none

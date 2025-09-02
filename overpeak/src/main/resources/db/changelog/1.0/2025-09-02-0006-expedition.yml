@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2025-09-02-0006-apustygina
+      author: apustygina
+      createTable:
+        tableName: expedition
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_expedition
+          - column:
+              name: name
+              type: varchar(200)
+              constraints:
+                nullable: false
+          - column:
+              name: start_date
+              type: date
+              constraints:
+                nullable: false
+          - column:
+              name: end_date
+              type: date
+              constraints:
+                nullable: true
+          - column:
+              name: status
+              type: varchar(50)
+              constraints:
+                nullable: true
+          - column:
+              name: group_id
+              type: bigint
+              constraints:
+                nullable: false
+          - column:
+              name: mountain_id
+              type: bigint
+              constraints:
+                nullable: false
+
+  - changeSet:
+      id: 2025-09-02-0006-fk-group
+      author: apustygina
+      addForeignKeyConstraint:
+        baseTableName: expedition
+        baseColumnNames: group_id
+        referencedTableName: groups
+        referencedColumnNames: id
+        constraintName: fk_expedition_group
+
+  - changeSet:
+      id: 2025-09-02-0006-fk-mountain
+      author: apustygina
+      addForeignKeyConstraint:
+        baseTableName: expedition
+        baseColumnNames: mountain_id
+        referencedTableName: mountain
+        referencedColumnNames: id
+        constraintName: fk_expedition_mountain

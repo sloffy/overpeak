@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2025-09-02-0005-apustygina
+      author: apustygina
+      createTable:
+        tableName: climber
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_climber
+          - column:
+              name: name
+              type: varchar(200)
+              constraints:
+                nullable: false
+          - column:
+              name: surname
+              type: varchar(200)
+              constraints:
+                nullable: false
+          - column:
+              name: address
+              type: varchar(500)
+              constraints:
+                nullable: true
+          - column:
+              name: contact_info
+              type: varchar(200)
+              constraints:
+                nullable: true

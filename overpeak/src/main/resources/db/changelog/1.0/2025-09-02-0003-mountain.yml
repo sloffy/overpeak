@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2025-09-02-0003-apustygina
+      author: apustygina
+      createTable:
+        tableName: mountain
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_mountain
+          - column:
+              name: name
+              type: varchar(200)
+              constraints:
+                nullable: false
+                unique: true
+          - column:
+              name: height
+              type: int
+              constraints:
+                nullable: false
+          - column:
+              name: region_id
+              type: bigint
+              constraints:
+                nullable: false
+
+      addForeignKeyConstraint:
+        baseTableName: mountain
+        baseColumnNames: region_id
+        referencedTableName: region
+        referencedColumnNames: id
+        constraintName: fk_mountain_region

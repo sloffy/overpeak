@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2025-09-02-0001-apustygina
+      author: apustygina
+      createTable:
+        tableName: country
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_country
+          - column:
+              name: name
+              type: varchar(200)
+              constraints:
+                nullable: false
+                unique: true

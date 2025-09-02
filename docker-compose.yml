@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-overpeak
+    environment:
+      POSTGRES_DB: overpeak
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: overpeakPass
+    ports:
+      - "5434:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: DockerFile
+    ports:
+      - "8087:8087"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/overpeak
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=overpeakPass
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver

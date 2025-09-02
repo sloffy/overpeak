@@ -1,0 +1,4 @@
+FROM adoptopenjdk:16-jre-hotspot
+COPY /target/overpeak-1.0-SNAPSHOT.jar /overpeak.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/springHW2.jar"]
