@@ -22,8 +22,88 @@
 
 <main>
   <h1>Список групп</h1>
+  
+  <section class="action-buttons">
+    <h2>Действия</h2>
+    <button id="add-group-btn" class="btn btn-primary">➕ Создать новую группу с экспедицией</button>
+    <button id="add-climber-to-group-btn" class="btn btn-secondary">👤 Добавить альпиниста в группу</button>
+  </section>
+
   <div id="groups-list">
     <!-- Сюда позже подгрузятся группы -->
+  </div>
+
+  <!-- Модальное окно для создания группы с экспедицией -->
+  <div id="group-expedition-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Создать новую группу с экспедицией</h2>
+      <form id="group-expedition-form">
+        <div class="form-group">
+          <label for="group-name">Название группы:</label>
+          <input type="text" id="group-name" required>
+        </div>
+        <div class="form-group">
+          <label for="expedition-mountain">Гора:</label>
+          <select id="expedition-mountain" required>
+            <option value="">Выберите гору</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="expedition-name">Название экспедиции:</label>
+          <input type="text" id="expedition-name" required>
+        </div>
+        <div class="form-group">
+          <label for="expedition-start-date">Дата начала восхождения:</label>
+          <input type="date" id="expedition-start-date" required>
+        </div>
+        <div class="form-group">
+          <label for="expedition-end-date">Дата окончания (опционально):</label>
+          <input type="date" id="expedition-end-date">
+        </div>
+        <div class="form-group">
+          <label for="expedition-status">Статус:</label>
+          <select id="expedition-status" required>
+            <option value="PLANNED">Запланировано</option>
+            <option value="IN_PROGRESS">В процессе</option>
+            <option value="COMPLETED">Завершено</option>
+            <option value="CANCELLED">Отменено</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Создать</button>
+          <button type="button" class="btn btn-secondary" id="cancel-group-btn">Отмена</button>
+        </div>
+        <div id="group-expedition-error" class="error" style="display: none;"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Модальное окно для добавления альпиниста в группу -->
+  <div id="add-climber-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Добавить альпиниста в группу</h2>
+      <form id="add-climber-form">
+        <div class="form-group">
+          <label for="climber-select">Альпинист:</label>
+          <select id="climber-select" required>
+            <option value="">Выберите альпиниста</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="group-select">Группа:</label>
+          <select id="group-select" required>
+            <option value="">Выберите группу</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Добавить</button>
+          <button type="button" class="btn btn-secondary" id="cancel-climber-btn">Отмена</button>
+        </div>
+        <div id="add-climber-error" class="error" style="display: none;"></div>
+      </form>
+    </div>
   </div>
 </main>
 

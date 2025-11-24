@@ -19,11 +19,12 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
     @EntityGraph(attributePaths = {"members", "members.climber"})
     java.util.List<Group> findAll();
 
-    @Query("SELECT g FROM Group g " +
+    @Query("SELECT DISTINCT g FROM Group g " +
             "JOIN g.expeditions e " +
             "JOIN e.mountain m " +
             "WHERE m.id = :mountainId " +
             "ORDER BY e.startDate ASC")
+    @EntityGraph(attributePaths = {"members", "members.climber"})
     List<Group> findGroupsByMountainOrdered(@Param("mountainId") long mountainId);
 
 }

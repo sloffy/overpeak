@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Восхождения по периоду</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js" defer></script>
+  <script src="/js/expeditions-by-period.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav>
+    <a href="/index.html">Главная</a>
+    <a href="/mountains.html">Список гор</a>
+    <a href="/groups.html">Список групп</a>
+    <a href="/climbers.html">Список альпинистов</a>
+    <a href="/ascents.html">Восхождения</a>
+  </nav>
+</header>
+<hr>
+
+<main>
+  <h1>Восхождения по периоду времени</h1>
+  
+  <section class="search-section">
+    <form id="period-search-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="start-date">Дата начала:</label>
+          <input type="date" id="start-date" required>
+        </div>
+        <div class="form-group">
+          <label for="end-date">Дата окончания:</label>
+          <input type="date" id="end-date" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Найти</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <div id="expeditions-result">
+    <p>Введите период дат и нажмите "Найти"</p>
+  </div>
+</main>
+
+</body>
+</html>
+

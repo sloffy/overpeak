@@ -24,7 +24,7 @@ public interface ClimberRepository extends JpaRepository<Climber, Long> {
             "FROM Expedition e " +
             "JOIN e.group g " +
             "JOIN g.members gc " +
-            "WHERE e.startDate <= :end AND e.endDate >= :start")
+            "WHERE e.startDate <= :end AND (e.endDate >= :start OR e.endDate IS NULL)")
     List<Climber> findClimbersByExpeditionInterval(@Param("start") LocalDate start,
                                                    @Param("end") LocalDate end);
     @Query("SELECT c.id AS climberId, m.id AS mountainId, COUNT(e) AS ascents " +

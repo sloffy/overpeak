@@ -27,7 +27,7 @@ public class GroupController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(groups);
     }
-    @GetMapping("mountain/{id}")
+    @GetMapping("/mountain/{id}")
     public ResponseEntity<List<GroupDto>> getByMountainOrderedDate(@PathVariable Long id) {
         List<GroupDto> groups = groupService.findGroupsByMountainOrdered(id)
                 .stream()

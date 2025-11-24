@@ -22,8 +22,46 @@
 
 <main>
   <h1>Список гор</h1>
+  
+  <section class="action-buttons">
+    <h2>Действия</h2>
+    <button id="add-mountain-btn" class="btn btn-primary">➕ Добавить новую вершину</button>
+  </section>
+
   <div id="mountains-list">
     <!-- Сюда позже подгрузятся горы -->
+  </div>
+
+  <!-- Модальное окно для добавления/редактирования горы -->
+  <div id="mountain-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Добавить новую вершину</h2>
+      <form id="mountain-form">
+        <input type="hidden" id="mountain-id">
+        <div class="form-group">
+          <label for="mountain-name">Название вершины:</label>
+          <input type="text" id="mountain-name" required>
+        </div>
+        <div class="form-group">
+          <label for="mountain-height">Высота (м):</label>
+          <input type="number" id="mountain-height" required min="0">
+        </div>
+        <div class="form-group">
+          <label for="mountain-region">Регион:</label>
+          <input type="text" id="mountain-region" required>
+        </div>
+        <div class="form-group">
+          <label for="mountain-country">Страна:</label>
+          <input type="text" id="mountain-country" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+          <button type="button" class="btn btn-secondary" id="cancel-btn">Отмена</button>
+        </div>
+        <div id="mountain-error" class="error" style="display: none;"></div>
+      </form>
+    </div>
   </div>
 </main>
 
